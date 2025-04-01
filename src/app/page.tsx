@@ -16,9 +16,6 @@ import Header from "@/components/header";
 import Link from "next/link";
 
 export default function Home() {
-    const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
