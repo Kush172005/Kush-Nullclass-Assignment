@@ -20,18 +20,25 @@ import {
     ArrowDownRight,
     Zap,
     Globe,
-    BookOpen,
+    Newspaper,
     Gift,
     HelpCircle,
     Settings,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import News_Feed from "@/components/news-feed";
 
 const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 },
+};
+
+const scrollToSection = () => {
+    document
+        .getElementById("target-section")
+        ?.scrollIntoView({ behavior: "smooth" });
 };
 
 const Header = () => {
@@ -73,15 +80,16 @@ const Header = () => {
                                 Investments
                             </Link>
                         </li>
-                        <li>
-                            <Link
-                                href="/"
-                                className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                            >
-                                <BookOpen className="mr-1" size={16} />
-                                Learn
-                            </Link>
-                        </li>
+                        <a
+                            href="#target-section"
+                            className="text-gray-300
+                            hover:text-blue-500 transition-colors flex
+                            items-center"
+                            onClick={scrollToSection}
+                        >
+                            <Newspaper className="mr-1" size={16} />
+                            News
+                        </a>
                     </ul>
                 </nav>
             </div>
@@ -177,16 +185,16 @@ const Header = () => {
                                         Investments
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link
-                                        href="/"
-                                        className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <BookOpen className="mr-2" size={18} />
-                                        Learn
-                                    </Link>
-                                </li>
+                                <a
+                                    href="#target-section"
+                                    className="text-gray-300
+                            hover:text-blue-500 transition-colors flex
+                            items-center"
+                                    onClick={scrollToSection}
+                                >
+                                    <Newspaper className="mr-1" size={16} />
+                                    News
+                                </a>
                                 <li>
                                     <Link
                                         href="/"
@@ -613,6 +621,9 @@ export default function DashboardPage() {
                 <ProductsAndTools />
                 <TopGainers />
                 <TopByMarketCap />
+                <div id="target-section">
+                    <News_Feed />
+                </div>
             </main>
         </div>
     );
