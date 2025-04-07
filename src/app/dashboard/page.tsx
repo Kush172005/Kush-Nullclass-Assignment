@@ -19,11 +19,12 @@ import {
     ArrowUpRight,
     ArrowDownRight,
     Zap,
-    Globe,
+    GitCompareArrows,
     Newspaper,
     Gift,
     HelpCircle,
     Settings,
+    LucideGitCompareArrows,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -73,11 +74,11 @@ const Header = () => {
                         </li>
                         <li>
                             <Link
-                                href="/"
+                                href="/dashboard/compare"
                                 className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
                             >
-                                <Globe className="mr-1" size={16} />
-                                Investments
+                                <GitCompareArrows className="mr-1" size={16} />
+                                Compare
                             </Link>
                         </li>
                         <a
@@ -177,12 +178,12 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/"
+                                        href="/dashboard/compare"
                                         className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
                                         onClick={() => setIsMenuOpen(false)}
                                     >
-                                        <Globe className="mr-2" size={18} />
-                                        Investments
+                                        <LucideGitCompareArrows className="mr-2" size={18} />
+                                        Compare
                                     </Link>
                                 </li>
                                 <a

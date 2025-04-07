@@ -16,8 +16,9 @@ import {
     Clock,
     DollarSign,
     BarChart2,
-    Zap,
     ChevronLeft,
+    Newspaper,
+    GitCompareArrows,
 } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -36,6 +37,12 @@ const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 },
+};
+
+const scrollToSection = () => {
+    document
+        .getElementById("target-section")
+        ?.scrollIntoView({ behavior: "smooth" });
 };
 
 const Header = () => {
@@ -60,22 +67,23 @@ const Header = () => {
                     <ul className="flex space-x-4">
                         <li>
                             <Link
-                                href="/dashboard"
-                                className="text-blue-500 font-semibold flex items-center"
-                            >
-                                <Zap className="mr-1" size={16} />
-                                Explore
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/dashboard"
+                                href="/dashboard/compare"
                                 className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
                             >
-                                <BarChart2 className="mr-1" size={16} />
-                                Investments
+                                <GitCompareArrows className="mr-1" size={16} />
+                                Compare
                             </Link>
                         </li>
+                        <a
+                            href="/dashboard#target-section"
+                            className="text-gray-300
+                                                    hover:text-blue-500 transition-colors flex
+                                                    items-center"
+                            onClick={scrollToSection}
+                        >
+                            <Newspaper className="mr-1" size={16} />
+                            News
+                        </a>
                     </ul>
                 </nav>
             </div>
@@ -136,24 +144,26 @@ const Header = () => {
                             <ul className="space-y-6">
                                 <li>
                                     <Link
-                                        href="/dashboard"
-                                        className="text-blue-500 font-semibold flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <Zap className="mr-2" size={18} />
-                                        Explore
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/dashboard"
+                                        href="/dashboard/compare"
                                         className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
                                     >
-                                        <BarChart2 className="mr-2" size={18} />
-                                        Investments
+                                        <GitCompareArrows
+                                            className="mr-1"
+                                            size={16}
+                                        />
+                                        Compare
                                     </Link>
                                 </li>
+                                <a
+                                    href="#target-section"
+                                    className="text-gray-300
+                                                            hover:text-blue-500 transition-colors flex
+                                                            items-center"
+                                    onClick={scrollToSection}
+                                >
+                                    <Newspaper className="mr-1" size={16} />
+                                    News
+                                </a>
                             </ul>
                         </nav>
                     </motion.div>
