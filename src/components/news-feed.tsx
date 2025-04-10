@@ -1,25 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { RefreshCw, ExternalLink, AlertCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { RefreshCw, AlertCircle } from "lucide-react";
+import { tradingNewsData, Article } from "../app/data/tradingNewsData";
 
 const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 },
 };
-
-interface Article {
-    source: { name: string };
-    author?: string;
-    title: string;
-    description?: string;
-    url: string;
-    urlToImage?: string;
-    publishedAt: string;
-    content?: string;
-}
 
 const NewsFeed = () => {
     const [news, setNews] = useState<Article[]>([]);
@@ -28,35 +18,30 @@ const NewsFeed = () => {
     const [error, setError] = useState<string | null>(null);
     const [refreshing, setRefreshing] = useState(false);
     const [visibleCount, setVisibleCount] = useState(9);
+    const loadingRef = useRef(loading);
+    const refreshingRef = useRef(refreshing);
 
     const shuffleArray = (array: Article[]): Article[] => {
-        for (let i = array.length - 1; i > 0; i--) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
         }
-        return array;
+        return newArray;
     };
 
     const fetchNews = async () => {
         try {
             setLoading(true);
             setError(null);
-            const apiKey = "c5717a6d10ec44ecab7f2b5569460ef9";
-            const response = await fetch(
-                `https://newsapi.org/v2/everything?q=trading&language=en&sortBy=publishedAt&apiKey=${apiKey}`
-            );
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const data = await response.json();
-            if (!data.articles || data.articles.length === 0) {
-                throw new Error("No articles found");
-            }
-            const shuffledNews = shuffleArray(data.articles);
+
+            await new Promise((resolve) => setTimeout(resolve, 800));
+
+            const shuffledNews = shuffleArray(tradingNewsData);
             setNews(shuffledNews);
             setDisplayedNews(shuffledNews.slice(0, 9));
         } catch (error) {
-            console.error("Error fetching news:", error);
+            console.error("Error processing news:", error);
             setError(error instanceof Error ? error.message : "Unknown error");
         } finally {
             setLoading(false);
@@ -75,8 +60,21 @@ const NewsFeed = () => {
     };
 
     useEffect(() => {
+        loadingRef.current = loading;
+    }, [loading]);
+
+    useEffect(() => {
+        refreshingRef.current = refreshing;
+    }, [refreshing]);
+
+    useEffect(() => {
         fetchNews();
-        const interval = setInterval(fetchNews, 60000);
+        const interval = setInterval(() => {
+            if (!loadingRef.current && !refreshingRef.current) {
+                setRefreshing(true);
+                fetchNews();
+            }
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
@@ -141,7 +139,8 @@ const NewsFeed = () => {
                                         <img
                                             src={
                                                 article.urlToImage ||
-                                                "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg"
+                                                "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1470&auto=format&fit=crop" ||
+                                                "/placeholder.svg"
                                             }
                                             alt={article.title}
                                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"

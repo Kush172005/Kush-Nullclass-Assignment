@@ -6,10 +6,8 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-    { name: "Markets", href: "#markets" },
-    { name: "Trading", href: "#trading" },
-    { name: "Analysis", href: "#analysis" },
-    { name: "Learn", href: "#learn" },
+    { name: "Compare", href: "/dashboard/compare" },
+    { name: "News", href: "/dashboard#target-section" },
 ];
 
 export default function Header() {
@@ -46,7 +44,6 @@ export default function Header() {
                     </motion.div>
                 </Link>
 
-                {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-1">
                     {navItems.map((item, index) => (
                         <motion.div
@@ -55,12 +52,21 @@ export default function Header() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
                         >
-                            <Link
-                                href={item.href}
-                                className="px-4 py-2 text-sm font-medium transition-colors hover:text-blue-500"
-                            >
-                                {item.name}
-                            </Link>
+                            {item.href.startsWith("#") ? (
+                                <a
+                                    href={item.href}
+                                    className="px-4 py-2 text-sm font-medium transition-colors hover:text-blue-500 flex items-center"
+                                >
+                                    {item.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    href={item.href}
+                                    className="px-4 py-2 text-sm font-medium transition-colors hover:text-blue-500 flex items-center"
+                                >
+                                    {item.name}
+                                </Link>
+                            )}
                         </motion.div>
                     ))}
                     <motion.div

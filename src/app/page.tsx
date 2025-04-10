@@ -30,13 +30,10 @@ export default function Home() {
         <>
             <Header />
             <main className="overflow-hidden">
-                {/* Hero Section */}
                 <section className="relative">
-                    {/* Background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] to-[#050505]/0 z-10" />
                     <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
 
-                    {/* Animated background elements */}
                     <div className="absolute top-20 -left-64 w-[500px] h-[500px] rounded-full bg-blue-500/30 blur-[100px] animate-blob" />
                     <div className="absolute top-40 -right-64 w-[600px] h-[600px] rounded-full bg-purple-500/20 blur-[100px] animate-blob animation-delay-2000" />
                     <div className="absolute -bottom-64 left-40 w-[400px] h-[400px] rounded-full bg-cyan-500/20 blur-[100px] animate-blob animation-delay-4000" />
@@ -73,7 +70,6 @@ export default function Home() {
                         </motion.div>
                     </div>
 
-                    {/* Floating dashboard preview */}
                     <motion.div
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -132,7 +128,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Features Section */}
                 <section className="py-24 relative">
                     <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                         <motion.div
@@ -217,7 +212,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Trading Platform Preview */}
                 <section className="py-24 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
                     <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
@@ -283,7 +277,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Market Analysis Section */}
                 <section className="py-24 relative">
                     <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -367,7 +360,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Testimonials */}
                 <section className="py-24 relative">
                     <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-blue-500/5 to-[#050505]" />
                     <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
@@ -444,7 +436,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* CTA Section */}
                 <section className="py-24">
                     <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                         <motion.div

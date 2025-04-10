@@ -154,7 +154,7 @@ const Header = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ type: "tween" }}
-                        className="fixed top-0 right-0 h-full w-64 bg-gray-800/95 backdrop-blur-lg p-4 z-50 border-l border-white/10"
+                        className="fixed right-0 top-0 flex justify-between items-center p-4 bg-black text-white border-b border-white/10"
                     >
                         <motion.button
                             onClick={() => setIsMenuOpen(false)}
@@ -164,8 +164,8 @@ const Header = () => {
                         >
                             <X />
                         </motion.button>
-                        <nav className="mt-16">
-                            <ul className="space-y-6">
+                        <nav className="mt-16 p-2">
+                            <ul className="space-y-8">
                                 <li>
                                     <Link
                                         href="/"
@@ -182,53 +182,21 @@ const Header = () => {
                                         className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
                                         onClick={() => setIsMenuOpen(false)}
                                     >
-                                        <LucideGitCompareArrows className="mr-2" size={18} />
+                                        <LucideGitCompareArrows
+                                            className="mr-2"
+                                            size={18}
+                                        />
                                         Compare
                                     </Link>
                                 </li>
                                 <a
                                     href="#target-section"
-                                    className="text-gray-300
-                            hover:text-blue-500 transition-colors flex
-                            items-center"
+                                    className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
                                     onClick={scrollToSection}
                                 >
-                                    <Newspaper className="mr-1" size={16} />
+                                    <Newspaper className="mr-2" size={18} />
                                     News
                                 </a>
-                                <li>
-                                    <Link
-                                        href="/"
-                                        className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <Gift className="mr-2" size={18} />
-                                        Rewards
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/"
-                                        className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <HelpCircle
-                                            className="mr-2"
-                                            size={18}
-                                        />
-                                        Support
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/"
-                                        className="text-gray-300 hover:text-blue-500 transition-colors flex items-center"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <Settings className="mr-2" size={18} />
-                                        Settings
-                                    </Link>
-                                </li>
                             </ul>
                         </nav>
                     </motion.div>
@@ -310,7 +278,7 @@ const MarketIndices = () => {
             {marketData.map((index) => (
                 <motion.div
                     key={index.name}
-                    className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl shadow-lg hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5"
+                    className="bg-gray-800/50  p-4 rounded-xl shadow-lg hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5"
                     whileHover={{
                         scale: 1.02,
                         boxShadow: "0 0 20px rgba(59, 130, 246, 0.2)",

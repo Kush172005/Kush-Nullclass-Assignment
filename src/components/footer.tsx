@@ -15,7 +15,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">
-                        TradeMaster
+                            TradeMaster
                         </div>
                         <p className="text-sm text-muted-foreground mb-4">
                             ABCD Tech Park, 3rd Floor
@@ -121,17 +121,17 @@ export default function Footer() {
                 <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-sm text-muted-foreground mb-4 md:mb-0">
                         © 2025 TradeMaster. All rights reserved, Built with ❤️
-                        in India
+                        by Kush
                     </p>
                     <div className="flex space-x-6">
                         <Link
-                            href="/terms"
+                            href="#"
                             className="text-sm text-muted-foreground hover:text-primary"
                         >
                             Terms of Service
                         </Link>
                         <Link
-                            href="/privacy"
+                            href="#"
                             className="text-sm text-muted-foreground hover:text-primary"
                         >
                             Privacy Policy
