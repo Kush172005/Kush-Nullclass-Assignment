@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "TradePro - Advanced Trading Platform",
+    title: "TradeMaster - Advanced Trading Platform",
     description:
         "Experience the next generation of trading with real-time data and advanced analytics",
 };

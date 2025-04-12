@@ -61,7 +61,7 @@ const Header = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    TradePro
+                    TradeMaster
                 </motion.div>
                 <nav className="hidden md:block">
                     <ul className="flex space-x-4">

@@ -59,7 +59,7 @@ const Header = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    TradePro
+                    TradeMaster
                 </motion.div>
                 <nav className="hidden md:block">
                     <ul className="flex space-x-4">
@@ -393,7 +393,7 @@ const MostBought = () => (
     <motion.div {...fadeInUp} className="my-10">
         <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold text-white">
-                Most Bought on TradePro
+                Most Bought on TradeMaster
             </h2>
             <motion.a
                 href="#"
