@@ -41,7 +41,7 @@ const fadeInUp = {
 
 const scrollToSection = () => {
     document
-        .getElementById("target-section")
+        .getElementById("news-section")
         ?.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -75,7 +75,7 @@ const Header = () => {
                             </Link>
                         </li>
                         <a
-                            href="/dashboard#target-section"
+                            href="/dashboard#news-section"
                             className="text-gray-300
                                                     hover:text-blue-500 transition-colors flex
                                                     items-center"
@@ -155,7 +155,7 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <a
-                                    href="#target-section"
+                                    href="#news-section"
                                     className="text-gray-300
                                                             hover:text-blue-500 transition-colors flex
                                                             items-center"

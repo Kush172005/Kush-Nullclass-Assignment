@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
     { name: "Compare", href: "/dashboard/compare" },
-    { name: "News", href: "/dashboard#target-section" },
+    { name: "News", href: "/dashboard#news-section" },
 ];
 
 export default function Header() {
